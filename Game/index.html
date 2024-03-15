@@ -6,6 +6,10 @@
     #counter { 
       font-size: 24px;
       margin-bottom: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
     .croissant {
       position: absolute;
@@ -29,7 +33,7 @@
   </style>
   <script>
     var count = 0;
-    alert("ack balls")
+
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
@@ -51,6 +55,19 @@
       setTimeout(function () {
         croissant.remove();
       }, 2000);
+      
+      updateCounterPosition();
+    }
+
+    function updateCounterPosition() {
+      var counter = document.getElementById("counter");
+      var counterRect = counter.getBoundingClientRect();
+      var mainCroissant = document.getElementsByClassName("main-croissant")[0];
+      var mainCroissantRect = mainCroissant.getBoundingClientRect();
+      var mainCroissantMiddleY = mainCroissantRect.top + (mainCroissantRect.height / 2);
+      var counterMiddleY = counterRect.top + (counterRect.height / 2);
+      var offsetY = mainCroissantMiddleY - counterMiddleY;
+      counter.style.transform = "translate(-50%, calc(-50% + " + offsetY + "px))";
     }
 
     window.addEventListener("load", function() {
@@ -63,6 +80,6 @@
 </head>
 <body>
   <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" style="transform: scale(0.67);" class="main-croissant">
-  <div id="counter">0</div>
+  <div id="counter">0 Croissants</div>
 </body>
 </html>
