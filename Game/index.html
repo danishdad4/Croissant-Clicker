@@ -3,14 +3,14 @@
 <head>
   <title>Croissant Clicker!</title>
   <style>
-    #counter { 
+    #counter {
       font-size: 24px;
       margin-bottom: 20px;
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: left;
     }
     .croissant {
       position: absolute;
@@ -23,12 +23,12 @@
       position: absolute;
       top: 50%;
       left: 15%;
-      transform: translate(-50%, -50%) scale(2);
+      transform: translate(-50%, -50%) scale(0.5);
       transform-origin: center;
       width: 400px;
       height: 400px;
     }
-    
+
     @keyframes fallAnimation {
       0% { top: -200px; opacity: 1; }
       100% { top: 100%; opacity: 0; }
@@ -40,7 +40,7 @@
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-      
+
       var mainCroissant = document.getElementsByClassName("main-croissant")[0];
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
@@ -63,7 +63,7 @@
   </script>
 </head>
 <body>
-  <div id="counter">0 Croissants</div>
   <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" class="main-croissant">
+  <div id="counter">0 Croissants</div>
 </body>
 </html>
