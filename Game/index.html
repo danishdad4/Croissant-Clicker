@@ -8,7 +8,7 @@
       margin-bottom: 20px;
       position: absolute;
       top: 50%;
-      left: 60%;
+      left: calc(10% + 200px + 10px);
       transform: translate(-50%, -50%);
     }
     .croissant {
@@ -22,24 +22,24 @@
       position: absolute;
       top: 50%;
       left: 10%;
-      transform: translate(0, -50%);
-      transform-origin: left center;
-      width: 200px;
-      height: 200px;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
+      width: 400px;
+      height: 400px;
     }
     
     @keyframes fallAnimation {
-      0% { top: -100px; opacity: 1; }
+      0% { top: -200px; opacity: 1; }
       100% { top: 100%; opacity: 0; }
     }
   </style>
   <script>
     var count = 0;
-
+    alert("ack asd")
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-      alert("Ack")
+      
       var mainCroissant = document.getElementsByClassName("main-croissant")[0];
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
@@ -47,10 +47,10 @@
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
-      croissant.style.width = "100px";
+      croissant.style.width = "200px";
       croissant.style.position = "absolute";
       croissant.style.top = (mainCroissantRect.top + mainCroissantRect.height / 2) + "px";
-      croissant.style.left = (mainCroissantCenterX - 50) + "px";
+      croissant.style.left = (mainCroissantCenterX - 100) + "px";
 
       document.body.appendChild(croissant);
 
