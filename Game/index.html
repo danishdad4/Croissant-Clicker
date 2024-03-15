@@ -10,6 +10,9 @@
     .croissant {
       position: absolute;
       pointer-events: none;
+      animation-name: fallAnimation;
+      animation-duration: 2s;
+      animation-timing-function: linear;
     }
     .main-croissant {
       position: absolute;
@@ -18,27 +21,36 @@
       transform: translate(0, -50%);
       transform-origin: top left;
     }
+    
+    @keyframes fallAnimation {
+      0% { top: 0; opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
   </style>
   <script>
     var count = 0;
-    alert("balls ack")
-    function incrementCounter() {
+    alert("ack balls")
+    function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
       
+      var mainCroissant = document.getElementsByClassName("main-croissant")[0];
+      var mainCroissantRect = mainCroissant.getBoundingClientRect();
+      var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
+
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
       croissant.style.width = "50px";
       croissant.style.position = "absolute";
-      croissant.style.top = "0";
-      croissant.style.left = (event.clientX - 25) + "px";
+      croissant.style.top = (mainCroissantRect.top + mainCroissantRect.height / 2) + "px";
+      croissant.style.left = (mainCroissantCenterX - 25) + "px";
 
       document.body.appendChild(croissant);
 
       setTimeout(function () {
         croissant.remove();
-      }, 1000);
+      }, 2000);
     }
 
     window.addEventListener("load", function() {
@@ -50,7 +62,7 @@
   </script>
 </head>
 <body>
-  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter()" alt="Click the Croissant!" style="transform: scale(0.67);" class="main-croissant">
+  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" style="transform: scale(0.67);" class="main-croissant">
   <div id="counter">0</div>
 </body>
 </html>
