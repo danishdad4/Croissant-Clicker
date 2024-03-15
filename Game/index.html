@@ -3,13 +3,13 @@
 <head>
   <title>Croissant Clicker!</title>
   <style>
-    #counter {
+    #counter { 
       font-size: 24px;
       margin-bottom: 20px;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 0;
+      left: 0;
+      right: 0;
       text-align: left;
     }
     .croissant {
@@ -22,13 +22,13 @@
     .main-croissant {
       position: absolute;
       top: 50%;
-      left: 15%;
-      transform: translate(-50%, -50%) scale(0.5);
+      left: 10%;
+      transform: translate(-50%, -50%);
       transform-origin: center;
       width: 400px;
       height: 400px;
     }
-
+    
     @keyframes fallAnimation {
       0% { top: -200px; opacity: 1; }
       100% { top: 100%; opacity: 0; }
@@ -40,7 +40,7 @@
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-
+      
       var mainCroissant = document.getElementsByClassName("main-croissant")[0];
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
@@ -48,11 +48,10 @@
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
-      croissant.style.width = "400px";
-      croissant.style.height = "400px";
+      croissant.style.width = "200px";
       croissant.style.position = "absolute";
       croissant.style.top = (mainCroissantRect.top + mainCroissantRect.height / 2) + "px";
-      croissant.style.left = (mainCroissantCenterX - 200) + "px";
+      croissant.style.left = (mainCroissantCenterX - 100) + "px";
 
       document.body.appendChild(croissant);
 
@@ -63,7 +62,7 @@
   </script>
 </head>
 <body>
-  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" class="main-croissant">
   <div id="counter">0 Croissants</div>
+  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" class="main-croissant">
 </body>
 </html>
