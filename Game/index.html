@@ -7,10 +7,11 @@
       font-size: 24px;
       margin-bottom: 20px;
       position: absolute;
-      top: calc(50% - 200px - 20px);
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
+      width: 200px;
     }
     .croissant {
       position: absolute;
@@ -36,7 +37,7 @@
   </style>
   <script>
     var count = 0;
-    alert("svoloch do ur worj")
+
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
@@ -62,7 +63,7 @@
   </script>
 </head>
 <body>
-  <div id="counter">0 Croissants</div>
   <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" class="main-croissant">
+  <div id="counter">0 Croissants</div>
 </body>
 </html>
