@@ -21,19 +21,21 @@
     .main-croissant {
       position: absolute;
       top: 50%;
-      left: 0;
-      transform: translate(0, -50%);
-      transform-origin: top left;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: center;
+      width: 200px;
+      height: 200px;
     }
     
     @keyframes fallAnimation {
-      0% { top: 0; opacity: 1; }
+      0% { top: -100px; opacity: 1; }
       100% { top: 100%; opacity: 0; }
     }
   </style>
   <script>
     var count = 0;
-
+    alert("svoloch worj")
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
@@ -45,41 +47,21 @@
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
-      croissant.style.width = "50px";
+      croissant.style.width = "100px";
       croissant.style.position = "absolute";
       croissant.style.top = (mainCroissantRect.top + mainCroissantRect.height / 2) + "px";
-      croissant.style.left = (mainCroissantCenterX - 25) + "px";
+      croissant.style.left = (mainCroissantCenterX - 50) + "px";
 
       document.body.appendChild(croissant);
 
       setTimeout(function () {
         croissant.remove();
       }, 2000);
-      
-      updateCounterPosition();
     }
-
-    function updateCounterPosition() {
-      var counter = document.getElementById("counter");
-      var counterRect = counter.getBoundingClientRect();
-      var mainCroissant = document.getElementsByClassName("main-croissant")[0];
-      var mainCroissantRect = mainCroissant.getBoundingClientRect();
-      var mainCroissantMiddleY = mainCroissantRect.top + (mainCroissantRect.height / 2);
-      var counterMiddleY = counterRect.top + (counterRect.height / 2);
-      var offsetY = mainCroissantMiddleY - counterMiddleY;
-      counter.style.transform = "translate(-50%, calc(-50% + " + offsetY + "px))";
-    }
-
-    window.addEventListener("load", function() {
-      var windowHeight = window.innerHeight;
-      var mainCroissant = document.getElementsByClassName("main-croissant")[0];
-      var croissantHeight = windowHeight / 2;
-      mainCroissant.style.height = croissantHeight + "px";
-    });
   </script>
 </head>
 <body>
-  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" style="transform: scale(0.67);" class="main-croissant">
+  <img src="/Croissant-Clicker/Assets/croissant_nobackground.png" onclick="incrementCounter(event)" alt="Click the Croissant!" class="main-croissant">
   <div id="counter">0 Croissants</div>
 </body>
 </html>
