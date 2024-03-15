@@ -40,7 +40,7 @@
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-      
+      alert("ack")
       var mainCroissant = document.getElementsByClassName("main-croissant")[0];
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
