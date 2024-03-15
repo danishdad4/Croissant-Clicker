@@ -22,8 +22,8 @@
     .main-croissant {
       position: absolute;
       top: 50%;
-      left: 10%;
-      transform: translate(-50%, -50%);
+      left: 15%;
+      transform: translate(-50%, -50%) scale(2);
       transform-origin: center;
       width: 400px;
       height: 400px;
@@ -48,10 +48,11 @@
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
-      croissant.style.width = "200px";
+      croissant.style.width = "400px";
+      croissant.style.height = "400px";
       croissant.style.position = "absolute";
       croissant.style.top = (mainCroissantRect.top + mainCroissantRect.height / 2) + "px";
-      croissant.style.left = (mainCroissantCenterX - 100) + "px";
+      croissant.style.left = (mainCroissantCenterX - 200) + "px";
 
       document.body.appendChild(croissant);
 
