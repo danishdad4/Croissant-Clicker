@@ -22,11 +22,11 @@
     .main-croissant {
       position: absolute;
       top: 50%;
-      left: 0%;
+      left: 10%;
       transform: translate(-50%, -50%);
       transform-origin: center;
-      width: 600px;
-      height: 600px;
+      width: 400px;
+      height: 400px;
     }
     
     @keyframes fallAnimation {
@@ -40,7 +40,7 @@
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-      alert("ack");
+      
       var mainCroissant = document.getElementsByClassName("main-croissant")[0];
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
