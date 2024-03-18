@@ -41,7 +41,7 @@
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
       
-      if (count % 3 === 0) { // Create small croissant every 3 clicks
+      if (count % 3 === 0) {
         var mainCroissant = document.getElementsByClassName("main-croissant")[0];
         var mainCroissantRect = mainCroissant.getBoundingClientRect();
         var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
