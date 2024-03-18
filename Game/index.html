@@ -1,4 +1,4 @@
-<!--hi-->
+<!-- If you see this, you are a very svoloch beta tester -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,11 +38,17 @@
   <script>
     var count = 0;
 
+    // Load the croissant count from local storage
+    if (localStorage.getItem("croissantCount")) {
+      count = parseInt(localStorage.getItem("croissantCount"));
+    }
+
     function incrementCounter(event) {
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
-      
-      if (count % 3 === 0) {
+      localStorage.setItem("croissantCount", count); // Save the croissant count to local storage
+
+      if (count % 3 === 0) { // Create small croissant every 3 clicks
         var mainCroissant = document.getElementsByClassName("main-croissant")[0];
         var mainCroissantRect = mainCroissant.getBoundingClientRect();
         var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
@@ -63,6 +69,11 @@
         }, 2000);
       }
     }
+
+    // Load the croissant count when the page is loaded
+    window.addEventListener("load", function () {
+      document.getElementById("counter").innerHTML = count + " Croissants";
+    });
   </script>
 </head>
 <body>
