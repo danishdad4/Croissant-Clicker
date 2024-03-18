@@ -41,24 +41,26 @@
       count++;
       document.getElementById("counter").innerHTML = count + " Croissants";
       
-      var mainCroissant = document.getElementsByClassName("main-croissant")[0];
-      var mainCroissantRect = mainCroissant.getBoundingClientRect();
-      var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
-      var mainCroissantCenterY = mainCroissantRect.top + (mainCroissantRect.height / 2);
+      if (count % 3 === 0) { // Create small croissant every 3 clicks
+        var mainCroissant = document.getElementsByClassName("main-croissant")[0];
+        var mainCroissantRect = mainCroissant.getBoundingClientRect();
+        var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
+        var mainCroissantCenterY = mainCroissantRect.top + (mainCroissantRect.height / 2);
 
-      var croissant = document.createElement("img");
-      croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
-      croissant.className = "croissant";
-      croissant.style.width = "200px";
-      croissant.style.position = "absolute";
-      croissant.style.top = mainCroissantCenterY + "px";
-      croissant.style.left = (mainCroissantCenterX - 100) + "px";
+        var croissant = document.createElement("img");
+        croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
+        croissant.className = "croissant";
+        croissant.style.width = "200px";
+        croissant.style.position = "absolute";
+        croissant.style.top = mainCroissantCenterY + "px";
+        croissant.style.left = (mainCroissantCenterX - 100) + "px";
 
-      document.body.appendChild(croissant);
+        document.body.appendChild(croissant);
 
-      setTimeout(function () {
-        croissant.remove();
-      }, 2000);
+        setTimeout(function () {
+          croissant.remove();
+        }, 2000);
+      }
     }
   </script>
 </head>
