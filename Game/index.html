@@ -30,7 +30,7 @@
     }
     
     @keyframes fallAnimation {
-      0% { top: 50%; opacity: 1; }
+      0% { top: 45%; opacity: 1; }
       100% { top: 100%; opacity: 0; }
     }
   </style>
@@ -45,14 +45,15 @@
       var mainCroissantRect = mainCroissant.getBoundingClientRect();
       var mainCroissantCenterX = mainCroissantRect.left + (mainCroissantRect.width / 2);
       var mainCroissantCenterY = mainCroissantRect.top + (mainCroissantRect.height / 2);
+      var randomX = Math.random() * mainCroissantRect.width;
 
       var croissant = document.createElement("img");
       croissant.src = "/Croissant-Clicker/Assets/croissant_nobackground.png";
       croissant.className = "croissant";
       croissant.style.width = "200px";
       croissant.style.position = "absolute";
-      croissant.style.top = mainCroissantCenterY + "px";
-      croissant.style.left = (mainCroissantCenterX - 100) + "px";
+      croissant.style.top = (mainCroissantCenterY - 100) + "px";
+      croissant.style.left = (mainCroissantRect.left + randomX - 100) + "px";
 
       document.body.appendChild(croissant);
 
